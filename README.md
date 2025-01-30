@@ -18,7 +18,8 @@ Here is the link I learned from:
 5. [Setting Up `nginx.conf`](#setting-up-nginxconf)
 6. [Docker Setup](#docker-setup)
 7. [Docker Tips](#docker-tips)
-8. [Problems I Encountered](#problems-i-encountered)
+8. [Deploying on AWS](#deploying-in-aws)
+9. [Problems I Encountered](#problems-i-encountered)
 
 ---
 
@@ -100,6 +101,27 @@ Docker Compose simplifies the management of multiple containers, allowing you to
 
 ---
 
+### Deploying on AWS
+
+- **Setting up Nginx and backend servers on AWS EC2 instace**  
+   The configurations done on EC2 are all the same  
+   Just one little tip, since I was on AWS Linux EC2 instance the path to nginx after installation is a little different from the Windows'  
+   
+   ```bash
+   /etc/nginx/nginx.conf
+   ```
+   Basically `cd ../` 2 times to the outer level of `ec2-user` then follow the above path  
+
+   Another note `nginx.conf` is considered to be read-only file so you can't use 
+   ```bash
+   vim nginx.conf
+   ```
+   Instead use 
+    ```bash
+   sudo vim nginx.conf
+   ```
+   to get the permission to write on it. 
+---
 ## Problems I Encountered
 
 ### Running Multiple Nginx Instances Doesn’t Work
